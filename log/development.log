@@ -1,0 +1,603 @@
+Started GET "/" for ::1 at 2021-08-10 20:48:15 -0700
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.6) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDogs (20180605190413)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" datetime, "adoption_date" datetime, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180605190413_create_dogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180605190413"]]
+  ↳ bin/rails:9
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20180605190431)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180605190431_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180605190431"]]
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddDeviseToUsers (20180605195517)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180605195517_add_devise_to_users.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180605195517"]]
+  ↳ bin/rails:9
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateActiveStorageTables (20180607114248)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180607114248_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  ↳ db/migrate/20180607114248_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180607114248_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  ↳ db/migrate/20180607114248_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20180607114248_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180607114248"]]
+  ↳ bin/rails:9
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-11 03:48:51.276197"], ["updated_at", "2021-08-11 03:48:51.276197"]]
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-08-10 20:49:02 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 335ms (Views: 317.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-08-10 20:56:41 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `will_paginate' for #<Class:0x0000020b835fe110>):
+  
+app/controllers/dogs_controller.rb:7:in `index'
+Started GET "/" for ::1 at 2021-08-10 20:57:07 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 129ms (Views: 119.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-08-10 21:17:26 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 166ms (Views: 149.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-08-10 21:23:58 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 152ms (Views: 143.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dogs" for ::1 at 2021-08-10 21:24:14 -0700
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2021-08-10 21:24:18 -0700
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2021-08-10 21:24:19 -0700
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2021-08-10 21:24:21 -0700
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/dogs/1" for ::1 at 2021-08-10 21:24:29 -0700
+Processing by DogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:72
+Completed 404 Not Found in 38ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Dog with 'id'=1):
+  
+app/controllers/dogs_controller.rb:72:in `set_dog'
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:24:42 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (170.3ms)
+  Rendered dogs/new.html.erb within layouts/application (172.3ms)
+Completed 200 OK in 199ms (Views: 193.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:30:46 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (36.5ms)
+  Rendered dogs/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 210ms (Views: 197.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:30:47 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.7ms)
+  Rendered dogs/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:30:48 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (11.8ms)
+  Rendered dogs/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:31:59 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.7ms)
+  Rendered dogs/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:32:43 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (34.8ms)
+  Rendered dogs/new.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 209ms (Views: 196.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:32:45 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.7ms)
+  Rendered dogs/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:32:54 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.8ms)
+  Rendered dogs/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:34:20 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (34.9ms)
+  Rendered dogs/new.html.erb within layouts/application (41.8ms)
+Completed 200 OK in 198ms (Views: 185.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:35:19 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.3ms)
+  Rendered dogs/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:39:44 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (0.4ms)
+  Rendered dogs/new.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (C:/Users/Maddy/Documents/BARKAssessment/app/views/dogs/_form.html.erb:6: syntax error, unexpected `do', expecting `end'
+'.freeze;   do @dog.images.each 
+            ^~
+C:/Users/Maddy/Documents/BARKAssessment/app/views/dogs/_form.html.erb:11: syntax error, unexpected `end', expecting end-of-input
+'.freeze; end 
+          ^~~
+):
+  
+app/views/dogs/_form.html.erb:6: syntax error, unexpected `do', expecting `end'
+app/views/dogs/_form.html.erb:11: syntax error, unexpected `end', expecting end-of-input
+app/views/dogs/new.html.erb:2:in `_app_views_dogs_new_html_erb__640331416_17380'
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:40:12 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (74.3ms)
+  Rendered dogs/new.html.erb within layouts/application (76.7ms)
+Completed 200 OK in 221ms (Views: 218.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:41:04 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (0.4ms)
+  Rendered dogs/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/Users/Maddy/Documents/BARKAssessment/app/views/dogs/_form.html.erb:8: syntax error, unexpected `do', expecting `end'
+'.freeze;   do @dog.images.each 
+            ^~
+C:/Users/Maddy/Documents/BARKAssessment/app/views/dogs/_form.html.erb:13: syntax error, unexpected `end', expecting end-of-input
+'.freeze; end 
+          ^~~
+):
+  
+app/views/dogs/_form.html.erb:8: syntax error, unexpected `do', expecting `end'
+app/views/dogs/_form.html.erb:13: syntax error, unexpected `end', expecting end-of-input
+app/views/dogs/new.html.erb:2:in `_app_views_dogs_new_html_erb__640331416_18280'
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:41:26 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (6.4ms)
+  Rendered dogs/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:42:05 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (7.5ms)
+  Rendered dogs/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 36ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:43:06 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (6.3ms)
+  Rendered dogs/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:43:07 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.3ms)
+  Rendered dogs/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/dogs" for ::1 at 2021-08-10 21:43:28 -0700
+Processing by DogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rpn1CbmzoWD2hI/sHOFLp7tdRktZfO25Lx/Sls0Cj9khhPvrOQ2fHkVnn/h+7kSMuZRerzaJqK6H2tDRyEXmfg==", "dog"=>{"name"=>"Misumi", "description"=>"Border Collie mix"}, "commit"=>"Create Dog"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (7.5ms)
+  Rendered dogs/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 43ms (Views: 34.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/dogs" for ::1 at 2021-08-10 21:43:34 -0700
+Processing by DogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o1a/J1B2AAarrwkUIL9TD33M71w725YxhAmhR6XIwdUsS7HF0Mg+eBhMGQBCsFwkfwX3uFQu0yYszKMAoI+ocg==", "dog"=>{"name"=>"Misumi", "description"=>"Border Collie mix"}, "commit"=>"Create Dog"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.5ms)
+  Rendered dogs/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2021-08-10 21:43:39 -0700
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dogs/1" for ::1 at 2021-08-10 21:44:03 -0700
+Processing by DogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:72
+Completed 404 Not Found in 32ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Dog with 'id'=1):
+  
+app/controllers/dogs_controller.rb:72:in `set_dog'
+Started GET "/dogs/1" for ::1 at 2021-08-10 21:45:05 -0700
+Processing by DogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:72
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Dog with 'id'=1):
+  
+app/controllers/dogs_controller.rb:72:in `set_dog'
+Started GET "/dogs" for ::1 at 2021-08-10 21:45:13 -0700
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 21:45:26 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.5ms)
+  Rendered dogs/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/dogs" for ::1 at 2021-08-10 21:45:35 -0700
+Processing by DogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T4wbQoS7djyibO0YL6L0+Vavis2UfJOauNQYxhxGFy7AkRWgBAVIQhGP/QxNrfvSVGaSKfuJ1o0QERqBGQF+iQ==", "dog"=>{"name"=>"Misumi", "description"=>"Border collie mix"}, "commit"=>"Create Dog"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.2ms)
+  Rendered dogs/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/dogs" for ::1 at 2021-08-10 21:45:40 -0700
+Processing by DogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/Xpq6lGua09LGV/fcmzwUqdo1CXotZLppwBBPFVz1YlyZ2QI0RBVMfj6T8sQY/95paHMwYdA1/4PxUN7UDS8Lg==", "dog"=>{"name"=>"Misumi", "description"=>"Border collie mix", "image"=>#<ActionDispatch::Http::UploadedFile:0x000002202e46ee20 @tempfile=#<Tempfile:C:/Users/Maddy/AppData/Local/Temp/RackMultipart20210810-25100-1avzh7l.jpeg>, @original_filename="1521744674350.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"dog[image]\"; filename=\"1521744674350.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Dog"}
+Unpermitted parameter: :image
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (6.1ms)
+  Rendered dogs/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/dogs" for ::1 at 2021-08-10 22:18:46 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/dogs/index.html.erb:1
+  Rendered collection of dogs/_thumbnail.html.erb [0 times] (0.0ms)
+  Rendered dogs/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 167ms (Views: 158.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:19:02 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (33.7ms)
+  Rendered dogs/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 64ms (Views: 57.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:19:13 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.7ms)
+  Rendered dogs/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:23:40 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (36.7ms)
+  Rendered dogs/new.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 221ms (Views: 208.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:24:33 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (9.8ms)
+  Rendered dogs/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 45ms (Views: 34.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:28:18 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (35.3ms)
+  Rendered dogs/new.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 194ms (Views: 182.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:28:20 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (6.0ms)
+  Rendered dogs/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:28:31 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (9.6ms)
+  Rendered dogs/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 48ms (Views: 39.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/dogs/new" for ::1 at 2021-08-10 22:28:48 -0700
+Processing by DogsController#new as HTML
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (9.6ms)
+  Rendered dogs/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 45ms (Views: 35.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/dogs" for ::1 at 2021-08-10 22:29:09 -0700
+Processing by DogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"17MHZ1vdtb3lWEEK1++95pfOvi6hDl/sniRk6A1NUMtYrgmF22OLw1a7UR614LLNlQemys77Gvs24WavCAo5bA==", "dog"=>{"name"=>"Misumi", "description"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x000001940b5241f8 @tempfile=#<Tempfile:C:/Users/Maddy/AppData/Local/Temp/RackMultipart20210810-24972-1v9r1ve.jpeg>, @original_filename="1521744674350.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"dog[image]\"; filename=\"1521744674350.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Dog"}
+Unpermitted parameter: :image
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/dogs_controller.rb:31
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/_form.html.erb (5.5ms)
+  Rendered dogs/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 34ms (Views: 29.8ms | ActiveRecord: 0.1ms)
+
+
