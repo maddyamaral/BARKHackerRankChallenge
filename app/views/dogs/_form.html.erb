@@ -1,0 +1,12 @@
+<%= simple_form_for @dog do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description, as: :text %>
+  <%#  BACKEND TECH ASSESSMENT CHALLENGE 2: Attempt at allowing multiple images per dog %>
+  <%= f.input :image, as: :file, :multiple => true %>
+
+  <% if @dog.images.any? %>
+    <%= image_tag @dog.images.first %>
+  <% end %>
+
+  <%= f.button :submit %>
+<% end %>
